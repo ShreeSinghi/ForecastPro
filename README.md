@@ -1,5 +1,5 @@
  
-# FORECASTNG WITH Recurrent Networks(RNNs) and Long-Short Term Memory Networks(LSTMs)
+# RNNs and LSTMs for Time Series Data
 ## Results
   ### Loss curve while training on AirQualityUCI dataset
   ![loss_curve_AirQualityACI](https://user-images.githubusercontent.com/103068685/227700154-0a28e689-87b5-4677-b67b-fb7907659319.png)
