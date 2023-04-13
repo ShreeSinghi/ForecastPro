@@ -1,5 +1,14 @@
  
-# RNNs and LSTMs for Time Series Data
+# A Univariate and Multivariate Forecasting Module
+## How to use?
+  Clone this Repo on your local system/colab.
+  
+   ```git clone https://github.com/Enforcer03/ForecastPro```
+   
+   Further steps are provided in the demo.ipynb file.
+## Methodology
+  With RNN and LSTM models, we take ```time_steps``` and the next day as training samples to train. We use MSE loss and MAPE as a Metric.
+  The code is written with an Object-Oriented Approach where we can create an instance of a model by modifying the hyper parameters like ```hidden layers``` to compare results.
 ## Results
   ### Loss curve while training on AirQualityUCI dataset
   ![loss_curve_AirQualityACI](https://user-images.githubusercontent.com/103068685/227700154-0a28e689-87b5-4677-b67b-fb7907659319.png)
@@ -12,8 +21,5 @@
 ## INFERENCES
   It is observed that the accuracy gradually falls as we move ahead in time, but is quite good in extarpolating the trend. However theforecast shows that it is not able to model the noise in the series.
 
-## Methodology
-  With RNN and LSTM models, we take ```time_steps``` and the next day as training samples to train. We use MSE loss and MAPE as a Metric.
-  The code is written with an Object-Oriented Approach where we can create an instance of a model by modifying the hyper parameters like ```hidden layers``` to compare results.
 ## Future Scope
   With a single step forecaster in place, one way to do multistep forecasting is to append the forecast to input and then pass it through the model. Another way would be to modify the architecture at the final layer to train so that we take the input training samples will contain the ```time steps``` and the ```n_forecast days``` as input and train accordingly. 
