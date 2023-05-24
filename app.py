@@ -6,7 +6,7 @@ import sklearn
 import json
 import pickle
 
-app = Flask(_name_)
+app = Flask(__name__)
 
 # Define the route for the home page
 @app.route('/')
@@ -29,5 +29,5 @@ def data():
     # For example, convert the data to lists and return as JSON
     return jsonify(test=test_data, predictions=predictions_data)
 
-if _name_ == '_main_':
-    app.run()
+if __name__ == '__main__':
+    app.run(debug=True)

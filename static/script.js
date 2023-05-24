@@ -35,19 +35,42 @@ function addChart(test, predictions){
 
   // Chart options
   var options = {
-  responsive: true,
-  // scales: {
-  //   y: {
-  //     beginAtZero: true
-  //   }
-  // }
+    responsive: true,
+    // scales: {
+    //   y: {
+    //     beginAtZero: true
+    //   }
+    // }
+    plugins: {
+      zoom: {
+        pan: {
+          enabled: true
+        },
+        zoom: {
+          wheel: {
+            enabled: true,
+          },
+          pinch: {
+            enabled: true
+          },
+          mode: 'xy',
+        },
+        limits : {
+          y: {
+            max: 'original',
+            min: 'original'
+          }
+        }
+      }
+    }
+
   };
 
   // Create the chart
   new Chart(document.getElementById("chart"), {
-  type : 'line',
-  data : data,
-  options : options
+    type : 'line',
+    data : data,
+    options : options
   });
 
 }
@@ -60,4 +83,5 @@ var ctx = document.getElementById('chart').getContext('2d');
 
 } catch(err) {
   console.error(err)
+  
 }
