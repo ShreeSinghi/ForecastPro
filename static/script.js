@@ -1,5 +1,22 @@
 try{
 
+
+  
+// JavaScript code to handle data source selection
+document.getElementById('data-source').addEventListener('change', function() {
+  var selectedOption = this.value;
+  var stockListDiv = document.getElementById('stock-list');
+  var customDataDiv = document.getElementById('custom-data');
+
+  if (selectedOption === 'yahoo') {
+    stockListDiv.style.display = 'block';
+    customDataDiv.style.display = 'none';
+  } else if (selectedOption === 'custom') {
+    stockListDiv.style.display = 'none';
+    customDataDiv.style.display = 'block';
+  }
+});
+
   // Function to fetch test and prediction data from Flask server
   function fetchData() {
     fetch('/data')
@@ -8,8 +25,8 @@ try{
         // Extract test and prediction data from the response
         var { test, predictions } = data;
   
-        test = test.map(element => element[1])
-        predictions = predictions.map(element => element[1])
+        test = test.map(element => element[0])
+        predictions = predictions.map(element => element[0])
   
         addChart(test, predictions)
       })
@@ -79,10 +96,8 @@ try{
   
   }
   
-  // Call the fetchData function when the page loads
   window.addEventListener('load', fetchData);
   
-  // Get the canvas element
   var ctx = document.getElementById('chart').getContext('2d');
   
   } catch(err) {
