@@ -23,7 +23,7 @@ def data():
     with open('predictions.json', 'r') as predictions_file:
         predictions_data = json.load(predictions_file)
 
-    test_data = test_data[:len(predictions_data)]    
+    test_data = test_data[-len(predictions_data):]    
 
     # Access the data as needed
     # For example, convert the data to lists and return as JSON
